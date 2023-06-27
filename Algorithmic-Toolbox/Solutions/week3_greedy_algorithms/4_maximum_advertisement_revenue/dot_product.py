@@ -1,12 +1,10 @@
-from itertools import permutations
+import numpy as np
 
 
 def max_dot_product(first_sequence, second_sequence):
-    max_product = 0
-    for permutation in permutations(second_sequence):
-        dot_product = sum(first_sequence[i] * permutation[i] for i in range(len(first_sequence)))
-        max_product = max(max_product, dot_product)
-
+    first_sequence = np.array(sorted(first_sequence))
+    second_sequence = np.array(sorted(second_sequence))
+    max_product = np.dot(first_sequence, second_sequence)
     return max_product
 
 
