@@ -1,9 +1,13 @@
 def majority_element_naive(elements):
-    for e in elements:
-        if elements.count(e) > len(elements) / 2:
-            return 1
 
+    count_dict = {}
+    for e in elements:
+        count_dict[e] = count_dict.get(e, 0) + 1
+        if count_dict[e] > len(elements) / 2:
+            return 1
+            
     return 0
+
 
 
 if __name__ == '__main__':
